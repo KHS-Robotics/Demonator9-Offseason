@@ -1,0 +1,9 @@
+[
+  {
+    "artifact": "frcJava (in project Demonator9-Offseason)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "Demonator9-Offseason",
+    "language": "java"
+  }
+]
