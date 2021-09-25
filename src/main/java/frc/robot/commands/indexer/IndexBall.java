@@ -33,22 +33,39 @@ public class IndexBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = .45;//(RobotContainer.indexer.getNumBalls() < 3) ? .45 : .45;
-    if (!toggled) {
+    double speed = .45;// (RobotContainer.indexer.getNumBalls() < 3) ? .45 : .45;
+    // if (!toggled) {
+    // RobotContainer.indexer.setMotor(speed);
+    // if (!RobotContainer.indexer.getSwitch1() && System.currentTimeMillis() -
+    // startTime > 200) {
+    // toggled = true;
+    // }
+    // } else if (RobotContainer.indexer.getNumBalls() == 4 &&
+    // RobotContainer.indexer.getSwitch3()) {
+    // RobotContainer.indexer.setMotor(speed);
+    // } else {
+    // if (!RobotContainer.indexer.getSwitch2() &&
+    // RobotContainer.indexer.getNumBalls() < 4) {
+    // RobotContainer.indexer.setMotor(speed);
+    // } else {
+    // isDone = true;
+    // }
+    // }
+ 
+    if (RobotContainer.indexer.getNumBalls() < 2 && (!RobotContainer.indexer.getSwitch1() || RobotContainer.indexer.getSwitch5() || System.currentTimeMillis() - startTime > 200)) {
       RobotContainer.indexer.setMotor(speed);
-      if (!RobotContainer.indexer.getSwitch1() && System.currentTimeMillis() - startTime > 200) {
-        toggled = true;
-      }
-    } else if (RobotContainer.indexer.getNumBalls() == 4 && RobotContainer.indexer.getSwitch3()) {
+    } else if (RobotContainer.indexer.getNumBalls() == 2 && (!RobotContainer.indexer.getSwitch2() || RobotContainer.indexer.getSwitch5())) {
+      RobotContainer.indexer.setMotor(speed);
+    } else if (RobotContainer.indexer.getNumBalls() == 3 && (!RobotContainer.indexer.getSwitch3() || RobotContainer.indexer.getSwitch5())) {
+      RobotContainer.indexer.setMotor(speed);
+    } else if (RobotContainer.indexer.getNumBalls() == 4 && (RobotContainer.indexer.getSwitch5()
+    || !(RobotContainer.indexer.getSwitch1() || RobotContainer.indexer.getSwitch2() || RobotContainer.indexer.getSwitch3())) ) {
       RobotContainer.indexer.setMotor(speed);
     } else {
-      if (!RobotContainer.indexer.getSwitch2() && RobotContainer.indexer.getNumBalls() < 4) {
-        RobotContainer.indexer.setMotor(speed);
-      } else {
-        isDone = true;
-      }
+      isDone = true;
     }
   }
+
 
   // Called once the command ends or is interrupted.
   @Override

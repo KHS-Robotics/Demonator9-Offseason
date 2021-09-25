@@ -57,7 +57,9 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledPeriodic() {    
+  public void disabledPeriodic() { 
+    AutoCommands.autoInit();
+    
     if(RobotContainer.xboxController.getBButton() && RobotContainer.xboxController.getAButton() && RobotContainer.xboxController.getBumper(Hand.kLeft)) {
       RobotContainer.hood.resetEnc();
       RobotContainer.hood.stop();

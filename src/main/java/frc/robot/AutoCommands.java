@@ -34,24 +34,13 @@ import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 public class AutoCommands {
   private static boolean initialized = false;
   //public static SwerveControllerCommand wallLineUp, frontTrench, pickTrench, returnTrench, moveOffInit, steal, moveFromSteal, pick3Rendevous, shootFromRendevous;
-  public static SwerveControllerCommand groupAStart, groupARed, groupABlue, endGroupARed, endGroupABlue, groupBStart, groupBRed, groupBBlue, endGroupBRed, endGroupBBlue, test;
+  public static SwerveControllerCommand driveOffLine;
 
   public static void autoInit() {
     if(!initialized) {
       new Thread(() -> {
-        groupAStart = loadPathweaverTrajectory("Start3BallA");
-        groupARed = loadPathweaverTrajectory("3BallARed");
-        groupABlue = loadPathweaverTrajectory("3BallABlue");
-        endGroupARed = loadPathweaverTrajectory("End3BallARed");
-        endGroupABlue = loadPathweaverTrajectory("End3BallABlue");
+        driveOffLine = loadPathweaverTrajectory("DriveOffLine");
 
-        groupBStart = loadPathweaverTrajectory("Start3BallB");
-        groupBRed = loadPathweaverTrajectory("3BallBRed");
-        groupBBlue = loadPathweaverTrajectory("3BallBBlue");
-        endGroupBRed = loadPathweaverTrajectory("End3BallBRed");
-        endGroupBBlue = loadPathweaverTrajectory("End3BallBBlue");
-
-        test = loadPathweaverTrajectory("test");
         /* wallLineUp = loadPathweaverTrajectory("WallLineUp");
         // frontTrench = loadPathweaverTrajectory("FrontOffset");
         // pickTrench = loadPathweaverTrajectory("Trench");
@@ -70,7 +59,7 @@ public class AutoCommands {
   public static SwerveControllerCommand loadPathweaverTrajectory(String json) {
       Trajectory trajectory;
       try {
-        Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve("output/" + json + ".wpilib.json");
+        Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve("output/output/" + json + ".wpilib.json");
         trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
       } catch (IOException ex) {
         DriverStation.reportError("Unable to open trajectory: " + json, ex.getStackTrace());
@@ -130,31 +119,8 @@ public class AutoCommands {
   // } */
 
 
-  public static Command groupARed() {
+  public static Command DriveOffLine() {
     return
-      groupAStart
-      .andThen(groupARed)
-      .andThen(endGroupARed);
+      driveOffLine;
   }
-
-  public static Command groupABlue() {
-    return
-      groupAStart
-      .andThen(groupABlue)
-      .andThen(endGroupABlue);
-  }
-
-  public static Command groupBRed() {
-      return
-        test;
-        // .andThen(groupBRed)
-        // .andThen(endGroupBRed);
-  }
-
-  public static Command groupBBlue() {
-      return
-        groupBStart
-        .andThen(groupBBlue)
-        .andThen(endGroupBBlue);
-    }
 }
