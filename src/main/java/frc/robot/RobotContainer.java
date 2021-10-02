@@ -294,7 +294,8 @@ public class RobotContainer {
 
     Button positionControl = new Button(() -> switchbox.positionControl() && xboxController.getBButton());
 
-    Button moveIndexer = new Button(() -> (indexer.getSwitch1() && Math.abs(switchbox.getIndexSpeed()) < 0.05 && !switchbox.shoot()));
+    Button moveIndexer = new Button(() -> (indexer.getSwitch1() 
+    && Math.abs(switchbox.getIndexSpeed()) < 0.05 && !switchbox.shoot()));
     moveIndexer.whenPressed(new IndexBall().withTimeout(2));
 
     Button incrementBall = new Button(() -> indexer.getSwitch5() && Math.abs(switchbox.getIndexSpeed()) < 0.05 && !switchbox.shoot());
@@ -343,6 +344,10 @@ public class RobotContainer {
         autonCommand = AutoCommands.DriveOffLine();
       break;
 
+      case 1:
+        autonCommand = AutoCommands.DriveOffThenShoot();
+      break;
+
       default:
       autonCommand = null;
     }
@@ -353,7 +358,11 @@ public class RobotContainer {
     Pose2d startPose;
     switch (id) {
       case 0: 
-        startPose = new Pose2d(3, -3, Rotation2d.fromDegrees(90));
+        startPose = new Pose2d(9, 5.2, Rotation2d.fromDegrees(0));
+      break;
+
+      case 1:
+      startPose = new Pose2d(9, 5.2, Rotation2d.fromDegrees(0));
       break;
 
       default:
