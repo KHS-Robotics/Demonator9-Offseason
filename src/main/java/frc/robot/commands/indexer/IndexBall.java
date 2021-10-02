@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
 public class IndexBall extends CommandBase {
-  private static boolean isDone = true, toggled = false;
+  private static boolean isDone = true;
   long startTime;
   
   /**
@@ -27,7 +27,6 @@ public class IndexBall extends CommandBase {
   public void initialize() {
     startTime = System.currentTimeMillis();
     isDone = false;
-    toggled = false;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
