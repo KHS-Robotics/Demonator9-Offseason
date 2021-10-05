@@ -35,7 +35,7 @@ public class SetIndexer extends CommandBase {
     if(RobotContainer.shooter.atSetpoint(shooterSpeed.getAsDouble())) {
       RobotContainer.indexer.setMotor(speed);
 
-      if(RobotContainer.indexer.getNumBalls() < 4) {
+      if(RobotContainer.indexer.getNumBalls() < 3) {
         RobotContainer.intake.intake();
       }
       

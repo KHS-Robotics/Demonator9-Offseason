@@ -251,10 +251,10 @@ public class RobotContainer {
     intakeDown.whenReleased(intake::up, intake);
     intakeDown.whenReleased(new WaitCommand(0.5).andThen(() -> intake.setOff()));
 
-    Button intaking = new Button(() -> (switchbox.intake() && !switchbox.shoot() && !(indexer.getNumBalls() > 4 && indexer.getSwitch5())));
+    Button intaking = new Button(() -> (switchbox.intake() && !switchbox.shoot() && indexer.getNumBalls() < 4 ));
     intaking.whileHeld(() -> {
       if (IndexBall.isIndexing()) {
-        //intake.intake(0.175);
+        intake.intake();
       } else {
         intake.intake();
       }
@@ -294,7 +294,7 @@ public class RobotContainer {
 
     Button positionControl = new Button(() -> switchbox.positionControl() && xboxController.getBButton());
 
-    Button moveIndexer = new Button(() -> (indexer.getSwitch1() 
+    Button moveIndexer = new Button(() -> (indexer.getSwitch5() 
     && Math.abs(switchbox.getIndexSpeed()) < 0.05 && !switchbox.shoot()));
     moveIndexer.whenPressed(new IndexBall().withTimeout(2));
 

@@ -36,7 +36,7 @@ public class IndexBall extends CommandBase {
  
     if (RobotContainer.indexer.getNumBalls() == 1 && !RobotContainer.indexer.getSwitch2()) {
       RobotContainer.indexer.setMotor(speed);
-    } else if (RobotContainer.indexer.getNumBalls() > 1 && (RobotContainer.indexer.getSwitch1() || !RobotContainer.indexer.getSwitch2())) {
+    } else if (RobotContainer.indexer.getNumBalls() > 1 && (RobotContainer.indexer.getSwitch5() || RobotContainer.indexer.getSwitch1() || !RobotContainer.indexer.getSwitch2())) {
       RobotContainer.indexer.setMotor(speed);
     } else {
       isDone = true;
@@ -54,7 +54,7 @@ public class IndexBall extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return isDone || (RobotContainer.indexer.getNumBalls() > 4);
+    return isDone || (RobotContainer.indexer.getNumBalls() > 3);
   }
 
   public static boolean isIndexing() {
