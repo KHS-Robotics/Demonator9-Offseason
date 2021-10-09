@@ -294,7 +294,7 @@ public class RobotContainer {
 
     Button positionControl = new Button(() -> switchbox.positionControl() && xboxController.getBButton());
 
-    Button moveIndexer = new Button(() -> (indexer.getSwitch5() 
+    Button moveIndexer = new Button(() -> (indexer.getSwitch1() 
     && Math.abs(switchbox.getIndexSpeed()) < 0.05 && !switchbox.shoot()));
     moveIndexer.whenPressed(new IndexBall().withTimeout(2));
 
@@ -306,6 +306,9 @@ public class RobotContainer {
 
     Button decreaseBall = new Button(() -> (indexer.getSwitch5() && (switchbox.getIndexSpeed() < -0.05)));
     decreaseBall.whenPressed(indexer::decrementBall);
+
+    Button removeJam = new Button( indexer::getSwitch5 );
+    removeJam.whenReleased(() -> { if (switchbox.outtake()) { indexer.decrementBall(); } });
 
     Button zeroBalls = new Button(() -> (!switchbox.engagePTO() && switchbox.climb()));
     zeroBalls.whenPressed(indexer::zeroBalls);

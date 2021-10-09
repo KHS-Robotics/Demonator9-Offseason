@@ -76,7 +76,7 @@ public class Indexer extends SubsystemBase {
 
     var matchTab = Shuffleboard.getTab("Match");
     matchTab.addNumber("Num Balls", this::getNumBalls);
-    matchTab.addBoolean("5 Balls", () -> getNumBalls() >= 5);
+    matchTab.addBoolean("4 Balls", () -> getNumBalls() >= 4);
 
     new Thread(() -> {
       boolean wasRead = false;

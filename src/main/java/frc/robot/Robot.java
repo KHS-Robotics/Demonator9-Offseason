@@ -95,7 +95,7 @@ public class Robot extends TimedRobot {
     .andThen(new WaitCommand(.5)
     .andThen(() -> RobotContainer.intake.setOff()));
 
-    RobotContainer.indexer.setNumBalls(0);
+    RobotContainer.indexer.setNumBalls(3);
 
     Command desiredAuton = 
       robotContainer.getAutonomousCommand(id)
