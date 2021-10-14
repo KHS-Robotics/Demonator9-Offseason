@@ -36,7 +36,9 @@ public class IndexBall extends CommandBase {
  
     if (RobotContainer.indexer.getNumBalls() == 1 && !RobotContainer.indexer.getSwitch2()) {
       RobotContainer.indexer.setMotor(speed);
-    } else if (RobotContainer.indexer.getNumBalls() > 1 && (RobotContainer.indexer.getSwitch1() || !RobotContainer.indexer.getSwitch2())) {
+    } else if (RobotContainer.indexer.getNumBalls() == 2 && (RobotContainer.indexer.getSwitch1() || !RobotContainer.indexer.getSwitch2())) {
+      RobotContainer.indexer.setMotor(speed);
+    } else if (RobotContainer.indexer.getNumBalls() == 3 && !RobotContainer.indexer.getSwitch3()) {
       RobotContainer.indexer.setMotor(speed);
     } else {
       isDone = true;

@@ -134,6 +134,9 @@ public class RobotContainer {
     Button holdAngle = new Button(() -> xboxController.getAButton());
     holdAngle.whenHeld(new HoldAngleWhileDriving());
 
+    Button holdAngleWithJoystick = new Button(() -> (Math.abs(xboxController.getX(Hand.kRight)) < 0.05));
+    holdAngleWithJoystick.whenHeld(new HoldAngleWhileDriving());
+
     Button moveHood = new Button(() -> switchbox.shooterOverride() && !switchbox.shoot() && RobotState.isOperatorControl());
     moveHood.whileHeld(() -> hood.moveHood(switchbox.getHoodSpeed()), hood);
     moveHood.whenReleased(() -> hood.moveHood(0), hood);
