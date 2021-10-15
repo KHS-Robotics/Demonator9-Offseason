@@ -89,7 +89,7 @@ public class RobotContainer {
     // swerveDrive.setDefaultCommand(new PivotPIDTuner());
     pixy.init();
     guide.set(false);
-    servo.set(.225);
+    servo.set(.175);
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -158,7 +158,7 @@ public class RobotContainer {
     }, shooter);
     wantsPto.whenReleased(() -> {
       shooter.setBrake(false);
-      servo.set(0.225);
+      servo.set(0.175);
     }, shooter);
 
     Button engagePTO = new Button(() -> switchbox.engagePTO() && RobotState.isOperatorControl() && shooter.canEngagePTO());

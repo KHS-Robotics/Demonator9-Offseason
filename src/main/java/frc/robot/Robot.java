@@ -131,6 +131,7 @@ public class Robot extends TimedRobot {
     RobotContainer.CPManipulator.brakeMode(true);
     RobotContainer.shooter.stop();
     RobotContainer.intake.stop();
+    RobotContainer.swerveDrive.setOffset(180);
 
     if(autonCommand != null) {
       autonCommand.cancel();
