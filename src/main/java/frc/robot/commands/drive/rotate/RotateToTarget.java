@@ -35,7 +35,7 @@ public class RotateToTarget extends CommandBase {
     if(Limelight.isTarget()) {
       angle = RobotContainer.swerveDrive.getYaw() - Limelight.getTx() - 1;
     } else {
-      angle = 180;
+      angle = 0;
     }
 
     RobotContainer.swerveDrive.rotateToAngleInPlace(angle);

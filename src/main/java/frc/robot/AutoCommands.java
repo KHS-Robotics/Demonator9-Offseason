@@ -47,8 +47,8 @@ public class AutoCommands {
         //driveOffLine = loadPathweaverTrajectory("DriveOffLine");
         steal2 = loadPathweaverTrajectory("Steal2");
 
-        driveOffLine = generatePath(new Pose2d(9, 5.2, Rotation2d.fromDegrees(0)), new Pose2d(6, 5.1, Rotation2d.fromDegrees(0)));
-        driveOffRotate = generatePath(new Pose2d(9, 5.2, Rotation2d.fromDegrees(0)), new Pose2d(6, 5.1, Rotation2d.fromDegrees(180)));
+        driveOffLine = generatePath(new Pose2d(9, 5.2, Rotation2d.fromDegrees(0)), new Pose2d(6.7, 5.1, Rotation2d.fromDegrees(0)));
+        driveOffRotate = generatePath(new Pose2d(9, 5.2, Rotation2d.fromDegrees(0)), new Pose2d(6.7, 5.1, Rotation2d.fromDegrees(0)));
         
       }).start();
 

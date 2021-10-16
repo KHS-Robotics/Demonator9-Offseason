@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends SubsystemBase {
   private CANSparkMax motor;
   private DoubleSolenoid solenoid;
-  private double speed = .5; //.7 made belt slip off
+  private double speed = .7; //.7 made belt slip off
   private CANEncoder motorEnc;
 
   public Intake() {

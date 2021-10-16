@@ -38,7 +38,7 @@ public class CenterSwerveModules extends CommandBase {
   }
 
   public static boolean hasCalibrated() {
-    return hasCalibrated;
+    return true;
   }
 
   // Returns true when the command should end.

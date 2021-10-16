@@ -108,11 +108,11 @@ public class Robot extends TimedRobot {
         RobotContainer.intake.stop();
     }, RobotContainer.swerveDrive);//, RobotContainer.shooter, RobotContainer.hood, RobotContainer.indexer, RobotContainer.intake);
 
-    if(!CenterSwerveModules.hasCalibrated()) {
-      autonCommand = new CenterSwerveModules().andThen(desiredAuton);
-    } else {
-      autonCommand = desiredAuton;
-    }
+    // if(!CenterSwerveModules.hasCalibrated()) {
+    //   autonCommand = new CenterSwerveModules().andThen(desiredAuton);
+    // } else {
+    autonCommand = desiredAuton;
+    // }
 
     if(autonCommand != null) {
       autonCommand.schedule();
@@ -131,7 +131,7 @@ public class Robot extends TimedRobot {
     RobotContainer.CPManipulator.brakeMode(true);
     RobotContainer.shooter.stop();
     RobotContainer.intake.stop();
-    RobotContainer.swerveDrive.setOffset(180);
+    RobotContainer.swerveDrive.setOffset(0);
 
     if(autonCommand != null) {
       autonCommand.cancel();
@@ -145,8 +145,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void testInit() {
-    CommandScheduler.getInstance().cancelAll();
-    RobotContainer.intake.stop();
+    // CommandScheduler.getInstance().cancelAll();
+    // RobotContainer.intake.stop();
   }
 
   @Override
