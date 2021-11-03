@@ -53,7 +53,7 @@ public class SwerveModule extends SubsystemBase {
    * @param digitalInputPort port number for the digital input, used to calibrate pivots
    * @param reversed true if drive motor is reversed
    */
-  public SwerveModule(String name, int driveMotorChannel, int pivotMotorChannel, double pivotP, double pivotI, double pivotD, double driveP, double driveI, double driveD, double driveFF, int digitalInputPort, boolean reversed) {
+  public SwerveModule(String name, int driveMotorChannel, int pivotMotorChannel, double pivotP, double pivotI, double pivotD, double driveP, double driveI, double driveD, double driveFF, int digitalInputPort, int currentLimit, boolean reversed) {
     isInverted = reversed;
 
     this.name = name;
@@ -85,6 +85,8 @@ public class SwerveModule extends SubsystemBase {
 
     setDetection = new DigitalInput(digitalInputPort);
 
+    driveMotor.setSmartCurrentLimit(currentLimit);
+
     var tab = Shuffleboard.getTab(name + " Module");
     //tab.addNumber("Angle (Deg)", this::getAngle);
     tab.addNumber("Setpoint (Deg)", pivotPID::getSetpoint);
@@ -105,8 +107,8 @@ public class SwerveModule extends SubsystemBase {
    * @param pivotD D value of Pivot PID
    * @param digitalInputPort port number for the digital input, used to calibrate pivots
    */
-  public SwerveModule(String name, int driveMotorChannel, int pivotMotorChannel, double pivotP, double pivotI, double pivotD, double driveP, double driveI, double driveD, double driveFF, int digitalInputPort) {
-    this(name, driveMotorChannel, pivotMotorChannel, pivotP, pivotI, pivotD, driveP, driveI, driveD, driveFF, digitalInputPort, false);
+  public SwerveModule(String name, int driveMotorChannel, int pivotMotorChannel, double pivotP, double pivotI, double pivotD, double driveP, double driveI, double driveD, double driveFF, int digitalInputPort, int currentLimit) {
+    this(name, driveMotorChannel, pivotMotorChannel, pivotP, pivotI, pivotD, driveP, driveI, driveD, driveFF, digitalInputPort, currentLimit, false);
   }
 
   @Override

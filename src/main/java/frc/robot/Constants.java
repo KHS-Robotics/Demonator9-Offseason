@@ -81,6 +81,11 @@ public class Constants {
   public static final double CP_MANIPULATOR_D = 0.01;
   public static final double CP_MANIPULATOR_FF = 0.0001;
 
+  public static final int FRONT_LEFT_CURRENT_LIMIT = 50;
+  public static final int FRONT_RIGHT_CURRENT_LIMIT = 50;
+  public static final int REAR_LEFT_CURRENT_LIMIT = 50;
+  public static final int REAR_RIGHT_CURRENT_LIMIT = 50;
+  
   //POSITION PID
  // public static final double INDEXER_P = 0.2;
  // public static final double INDEXER_I = 0.0000015;
